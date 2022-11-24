@@ -89,23 +89,54 @@ CMakeFiles/datastruct-exp.dir/src/GraphNode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/datastruct-exp.dir/src/GraphNode.cpp.s"
 	E:\MinGW\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S G:\Desktop\datastruct-exp\src\GraphNode.cpp -o CMakeFiles\datastruct-exp.dir\src\GraphNode.cpp.s
 
+CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj: CMakeFiles/datastruct-exp.dir/flags.make
+CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj: CMakeFiles/datastruct-exp.dir/includes_CXX.rsp
+CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj: ../src/draw.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=G:\Desktop\datastruct-exp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj"
+	E:\MinGW\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\datastruct-exp.dir\src\draw.cpp.obj -c G:\Desktop\datastruct-exp\src\draw.cpp
+
+CMakeFiles/datastruct-exp.dir/src/draw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/datastruct-exp.dir/src/draw.cpp.i"
+	E:\MinGW\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E G:\Desktop\datastruct-exp\src\draw.cpp > CMakeFiles\datastruct-exp.dir\src\draw.cpp.i
+
+CMakeFiles/datastruct-exp.dir/src/draw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/datastruct-exp.dir/src/draw.cpp.s"
+	E:\MinGW\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S G:\Desktop\datastruct-exp\src\draw.cpp -o CMakeFiles\datastruct-exp.dir\src\draw.cpp.s
+
+CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj: CMakeFiles/datastruct-exp.dir/flags.make
+CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj: CMakeFiles/datastruct-exp.dir/includes_CXX.rsp
+CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj: ../src/my-algorithm.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=G:\Desktop\datastruct-exp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj"
+	E:\MinGW\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\datastruct-exp.dir\src\my-algorithm.cpp.obj -c G:\Desktop\datastruct-exp\src\my-algorithm.cpp
+
+CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.i"
+	E:\MinGW\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E G:\Desktop\datastruct-exp\src\my-algorithm.cpp > CMakeFiles\datastruct-exp.dir\src\my-algorithm.cpp.i
+
+CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.s"
+	E:\MinGW\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S G:\Desktop\datastruct-exp\src\my-algorithm.cpp -o CMakeFiles\datastruct-exp.dir\src\my-algorithm.cpp.s
+
 # Object files for target datastruct-exp
 datastruct__exp_OBJECTS = \
-"CMakeFiles/datastruct-exp.dir/src/GraphNode.cpp.obj"
+"CMakeFiles/datastruct-exp.dir/src/GraphNode.cpp.obj" \
+"CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj" \
+"CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj"
 
 # External object files for target datastruct-exp
 datastruct__exp_EXTERNAL_OBJECTS =
 
-../bin/datastruct-exp.dll: CMakeFiles/datastruct-exp.dir/src/GraphNode.cpp.obj
-../bin/datastruct-exp.dll: CMakeFiles/datastruct-exp.dir/build.make
-../bin/datastruct-exp.dll: CMakeFiles/datastruct-exp.dir/linklibs.rsp
-../bin/datastruct-exp.dll: CMakeFiles/datastruct-exp.dir/objects1.rsp
-../bin/datastruct-exp.dll: CMakeFiles/datastruct-exp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=G:\Desktop\datastruct-exp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C shared library ..\bin\datastruct-exp.dll"
+../lib/datastruct-exp.a: CMakeFiles/datastruct-exp.dir/src/GraphNode.cpp.obj
+../lib/datastruct-exp.a: CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj
+../lib/datastruct-exp.a: CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj
+../lib/datastruct-exp.a: CMakeFiles/datastruct-exp.dir/build.make
+../lib/datastruct-exp.a: CMakeFiles/datastruct-exp.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=G:\Desktop\datastruct-exp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C static library ..\lib\datastruct-exp.a"
+	$(CMAKE_COMMAND) -P CMakeFiles\datastruct-exp.dir\cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\datastruct-exp.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/datastruct-exp.dir/build: ../bin/datastruct-exp.dll
+CMakeFiles/datastruct-exp.dir/build: ../lib/datastruct-exp.a
 
 .PHONY : CMakeFiles/datastruct-exp.dir/build
 
@@ -114,6 +145,6 @@ CMakeFiles/datastruct-exp.dir/clean:
 .PHONY : CMakeFiles/datastruct-exp.dir/clean
 
 CMakeFiles/datastruct-exp.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" G:\Desktop\datastruct-exp G:\Desktop\datastruct-exp G:\Desktop\datastruct-exp\cmake-build-debug G:\Desktop\datastruct-exp\cmake-build-debug G:\Desktop\datastruct-exp\cmake-build-debug\CMakeFiles\dataStruct-exp.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" G:\Desktop\datastruct-exp G:\Desktop\datastruct-exp G:\Desktop\datastruct-exp\cmake-build-debug G:\Desktop\datastruct-exp\cmake-build-debug G:\Desktop\datastruct-exp\cmake-build-debug\CMakeFiles\datastruct-exp.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/datastruct-exp.dir/depend
 

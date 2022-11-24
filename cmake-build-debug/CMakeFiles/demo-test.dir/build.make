@@ -98,7 +98,7 @@ demo__test_EXTERNAL_OBJECTS =
 
 ../bin/demo-test.exe: CMakeFiles/demo-test.dir/example/demo-test.cpp.obj
 ../bin/demo-test.exe: CMakeFiles/demo-test.dir/build.make
-../bin/demo-test.exe: ../lib/libdatastruct-exp.dll.a
+../bin/demo-test.exe: ../lib/datastruct-exp.a
 ../bin/demo-test.exe: CMakeFiles/demo-test.dir/linklibs.rsp
 ../bin/demo-test.exe: CMakeFiles/demo-test.dir/objects1.rsp
 ../bin/demo-test.exe: CMakeFiles/demo-test.dir/link.txt

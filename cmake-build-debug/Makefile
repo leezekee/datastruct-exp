@@ -254,6 +254,60 @@ src/GraphNode.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\datastruct-exp.dir\build.make CMakeFiles/datastruct-exp.dir/src/GraphNode.cpp.s
 .PHONY : src/GraphNode.cpp.s
 
+src/draw.obj: src/draw.cpp.obj
+
+.PHONY : src/draw.obj
+
+# target to build an object file
+src/draw.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\datastruct-exp.dir\build.make CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj
+.PHONY : src/draw.cpp.obj
+
+src/draw.i: src/draw.cpp.i
+
+.PHONY : src/draw.i
+
+# target to preprocess a source file
+src/draw.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\datastruct-exp.dir\build.make CMakeFiles/datastruct-exp.dir/src/draw.cpp.i
+.PHONY : src/draw.cpp.i
+
+src/draw.s: src/draw.cpp.s
+
+.PHONY : src/draw.s
+
+# target to generate assembly for a file
+src/draw.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\datastruct-exp.dir\build.make CMakeFiles/datastruct-exp.dir/src/draw.cpp.s
+.PHONY : src/draw.cpp.s
+
+src/my-algorithm.obj: src/my-algorithm.cpp.obj
+
+.PHONY : src/my-algorithm.obj
+
+# target to build an object file
+src/my-algorithm.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\datastruct-exp.dir\build.make CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj
+.PHONY : src/my-algorithm.cpp.obj
+
+src/my-algorithm.i: src/my-algorithm.cpp.i
+
+.PHONY : src/my-algorithm.i
+
+# target to preprocess a source file
+src/my-algorithm.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\datastruct-exp.dir\build.make CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.i
+.PHONY : src/my-algorithm.cpp.i
+
+src/my-algorithm.s: src/my-algorithm.cpp.s
+
+.PHONY : src/my-algorithm.s
+
+# target to generate assembly for a file
+src/my-algorithm.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\datastruct-exp.dir\build.make CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.s
+.PHONY : src/my-algorithm.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -274,6 +328,12 @@ help:
 	@echo ... src/GraphNode.obj
 	@echo ... src/GraphNode.i
 	@echo ... src/GraphNode.s
+	@echo ... src/draw.obj
+	@echo ... src/draw.i
+	@echo ... src/draw.s
+	@echo ... src/my-algorithm.obj
+	@echo ... src/my-algorithm.i
+	@echo ... src/my-algorithm.s
 .PHONY : help
 
 

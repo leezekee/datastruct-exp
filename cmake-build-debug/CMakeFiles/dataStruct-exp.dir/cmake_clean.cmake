@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "../bin/datastruct-exp.dll"
-  "../bin/datastruct-exp.dll.manifest"
-  "../bin/datastruct-exp.pdb"
-  "../lib/libdatastruct-exp.dll.a"
+  "../lib/datastruct-exp.a"
+  "../lib/datastruct-exp.pdb"
   "CMakeFiles/datastruct-exp.dir/src/GraphNode.cpp.obj"
+  "CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj"
+  "CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj"
 )
 
 # Per-language clean rules from dependency scanning.

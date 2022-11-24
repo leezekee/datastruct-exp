@@ -6,8 +6,11 @@
 #define DATASTRUCT_EXP_GRAPHNODE_H
 #include <graphics.h>
 #include <string>
+#include <ostream>
 
 class GraphNode {
+public:
+    int adjInfo;
 private:
     int x; // 坐标x y值
     int y;
@@ -35,6 +38,11 @@ public:
     void setVisibility(bool _visibility);  // 设置是否可见
     void changeVisibility(); // 改变可见度
     color_t getRGB(); // 返回RGB值
+    // 运算符重载
+    GraphNode& operator=(int adj);
+    bool operator==(int adj) const;
+    friend std::ostream & operator<<(std::ostream &out, GraphNode &G);
+    friend std::istream & operator>>(std::istream &in, GraphNode &G);
 };
 
 #endif //DATASTRUCT_EXP_GRAPHNODE_H

@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/dataStruct_exp")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/datastruct-exp")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,32 +39,14 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "G:/Desktop/datastruct-exp/lib/libdatastruct-exp.dll.a")
+   "G:/Desktop/datastruct-exp/lib/datastruct-exp.a")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "G:/Desktop/datastruct-exp/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "G:/Desktop/datastruct-exp/lib/libdatastruct-exp.dll.a")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "G:/Desktop/datastruct-exp/lib/datastruct-exp.dll")
-  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  endif()
-  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  endif()
-file(INSTALL DESTINATION "G:/Desktop/datastruct-exp/lib" TYPE SHARED_LIBRARY FILES "G:/Desktop/datastruct-exp/bin/datastruct-exp.dll")
-  if(EXISTS "$ENV{DESTDIR}/G:/Desktop/datastruct-exp/lib/datastruct-exp.dll" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/G:/Desktop/datastruct-exp/lib/datastruct-exp.dll")
-    if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "E:/MinGW/x86_64-8.1.0-release-posix-seh-rt_v6-rev0/mingw64/bin/strip.exe" "$ENV{DESTDIR}/G:/Desktop/datastruct-exp/lib/datastruct-exp.dll")
-    endif()
-  endif()
+file(INSTALL DESTINATION "G:/Desktop/datastruct-exp/lib" TYPE STATIC_LIBRARY FILES "G:/Desktop/datastruct-exp/lib/datastruct-exp.a")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

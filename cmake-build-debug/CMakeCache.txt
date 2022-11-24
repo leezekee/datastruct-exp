@@ -118,7 +118,7 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 CMAKE_GNUtoMS:BOOL=OFF
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/dataStruct_exp
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/datastruct-exp
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=E:/MinGW/x86_64-8.1.0-release-posix-seh-rt_v6-rev0/mingw64/bin/ld.exe
@@ -243,18 +243,6 @@ CMAKE_STRIP:FILEPATH=E:/MinGW/x86_64-8.1.0-release-posix-seh-rt_v6-rev0/mingw64/
 // during the make.  This is useful for debugging only. With Visual
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
-
-//Value Computed by CMake
-dataStruct-exp_BINARY_DIR:STATIC=G:/Desktop/datastruct-exp/cmake-build-debug
-
-//Value Computed by CMake
-dataStruct-exp_SOURCE_DIR:STATIC=G:/Desktop/datastruct-exp
-
-//Value Computed by CMake
-dataStruct_exp_BINARY_DIR:STATIC=G:/Desktop/datastruct-exp/cmake-build-debug
-
-//Value Computed by CMake
-dataStruct_exp_SOURCE_DIR:STATIC=G:/Desktop/datastruct-exp
 
 //Value Computed by CMake
 datastruct-exp_BINARY_DIR:STATIC=G:/Desktop/datastruct-exp/cmake-build-debug

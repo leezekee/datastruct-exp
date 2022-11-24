@@ -2,11 +2,14 @@
 // Created by lizhi on 2022/11/24.
 //
 
+#include <GraphNode.h>
+
 #include "public.h"
 
 int GraphNode::nodeNumber = 0;
 
 GraphNode::GraphNode() {
+    this->adjInfo = 0;
     this->x = 0;
     this->y = 0;
     this->radius = 5;
@@ -19,6 +22,7 @@ GraphNode::GraphNode() {
 }
 
 GraphNode::GraphNode(int x, int y) {
+    this->adjInfo = 0;
     this->x = x;
     this->y = y;
     this->radius = 5;
@@ -31,6 +35,7 @@ GraphNode::GraphNode(int x, int y) {
 }
 
 GraphNode::GraphNode(int x, int y, int r) {
+    this->adjInfo = 0;
     this->x = x;
     this->y = y;
     this->radius = r;
@@ -43,6 +48,7 @@ GraphNode::GraphNode(int x, int y, int r) {
 }
 
 GraphNode::GraphNode(GraphNode &other) {
+    this->adjInfo = 0;
     this->x = other.x;
     this->y = other.y;
     this->radius = other.radius;
@@ -89,5 +95,26 @@ color_t GraphNode::getRGB() {
 void GraphNode::setString(std::string _name) {
     this->name = std::move(_name);
 }
+
+bool GraphNode::operator==(const int adj) const {
+    return this->adjInfo == adj;
+}
+
+std::istream &operator>>(std::istream &in, GraphNode &G) {
+    in >> G.adjInfo;
+    return in;
+}
+
+std::ostream &operator<<(std::ostream &out, GraphNode &G) {
+    out << G.adjInfo;
+    return out;
+}
+
+GraphNode &GraphNode::operator=(int adj) {
+    this->adjInfo = adj;
+    return *this;
+}
+
+
 
 

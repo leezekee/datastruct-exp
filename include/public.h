@@ -14,7 +14,8 @@
 #define DATASTRUCT_EXP_PUBLIC_H
 
 // 需要的头文件加这里， 不要和上边重复
-#include "line.h"
+#include "draw.h"
+#include "my-algorithm.h"
 #include <iostream>
 
 #endif //DATASTRUCT_EXP_PUBLIC_H

@@ -2,9 +2,7 @@
 // Created by lizhi on 2022/11/24.
 //
 
-#include "GraphNode.h"
-
-#include <utility>
+#include "public.h"
 
 int GraphNode::nodeNumber = 0;
 

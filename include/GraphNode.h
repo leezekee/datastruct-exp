@@ -37,7 +37,4 @@ public:
     color_t getRGB(); // 返回RGB值
 };
 
-void drawLine(GraphNode na, GraphNode nb);  // 画两个结点之间的线
-
-
 #endif //DATASTRUCT_EXP_GRAPHNODE_H

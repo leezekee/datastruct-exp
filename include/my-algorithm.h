@@ -7,11 +7,11 @@
 #include "GraphNode.h"
 
 void _dfs(GraphNode **_vexes, int v0, int *_visited);
-void dfs(GraphNode **vexes);
+void dfs(GraphNode **_vexes);
 
 
-int findAdjVex(GraphNode **vexes, int v0, int *visited);
-void _bfs(GraphNode **vexes, int v0, int *visited);
-void bfs(GraphNode **vexes);
+int findAdjVex(GraphNode **_vexes, int v0, int *visited);
+void _bfs(GraphNode **_vexes, int v0, int *visited);
+void bfs(GraphNode **_vexes);
 
 #endif //DATASTRUCT_EXP_MY_ALGORITHM_H

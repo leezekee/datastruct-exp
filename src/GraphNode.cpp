@@ -2,18 +2,17 @@
 // Created by lizhi on 2022/11/24.
 //
 
-#include <GraphNode.h>
-
-#include "public.h"
+#include "GraphNode.h"
 
 int GraphNode::nodeNumber = 0;
 
 GraphNode::GraphNode() {
+    memset(this->name, 0, sizeof(this->name));
     this->adjInfo = 0;
     this->x = 0;
     this->y = 0;
     this->radius = 5;
-    this->name = "undefined" + std::to_string(nodeNumber);
+    itoa(nodeNumber * - 1, this->name, 10);
     this->isVisible = false;
     this->red = 0;
     this->green = 0;
@@ -22,11 +21,12 @@ GraphNode::GraphNode() {
 }
 
 GraphNode::GraphNode(int x, int y) {
+    memset(this->name, 0, sizeof(this->name));
     this->adjInfo = 0;
     this->x = x;
     this->y = y;
     this->radius = 5;
-    this->name = "undefined" + std::to_string(nodeNumber);
+    itoa(nodeNumber * - 1, this->name, 10);
     this->isVisible = false;
     this->red = 0;
     this->green = 0;
@@ -35,11 +35,12 @@ GraphNode::GraphNode(int x, int y) {
 }
 
 GraphNode::GraphNode(int x, int y, int r) {
+    memset(this->name, 0, sizeof(this->name));
     this->adjInfo = 0;
     this->x = x;
     this->y = y;
     this->radius = r;
-    this->name = "undefined" + std::to_string(nodeNumber);
+    itoa(nodeNumber * - 1, this->name, 10);
     this->isVisible = false;
     this->red = 0;
     this->green = 0;
@@ -48,15 +49,12 @@ GraphNode::GraphNode(int x, int y, int r) {
 }
 
 GraphNode::GraphNode(GraphNode &other) {
+    memset(this->name, 0, sizeof(this->name));
     this->adjInfo = 0;
     this->x = other.x;
     this->y = other.y;
     this->radius = other.radius;
-    if (other.name == "undefined" + std::to_string(nodeNumber - 1)) {
-        this->name = "undefined" + std::to_string(nodeNumber);
-    } else {
-        this->name = other.name;
-    }
+    itoa(nodeNumber * - 1, this->name, 10);
     this->isVisible = other.isVisible;
     this->red = other.red;
     this->green = other.green;
@@ -92,8 +90,8 @@ color_t GraphNode::getRGB() {
     return EGERGB(this->red, this->green, this->blue);
 }
 
-void GraphNode::setString(std::string _name) {
-    this->name = std::move(_name);
+void GraphNode::setString(char *_name) {
+    memcpy(this->name, _name, sizeof(_name));
 }
 
 bool GraphNode::operator==(const int adj) const {
@@ -113,6 +111,10 @@ std::ostream &operator<<(std::ostream &out, GraphNode &G) {
 GraphNode &GraphNode::operator=(int adj) {
     this->adjInfo = adj;
     return *this;
+}
+
+color_t GraphNode::getFontColor() const {
+    return EGERGB(255-this->red, 255-this->green, 255-this->blue);
 }
 
 

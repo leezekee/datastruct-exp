@@ -13,7 +13,7 @@ void dfs(GraphNode **vexes){
 }
 
 int findAdjVex(GraphNode **vexes, int v0, int *visited){
-
+    return 0;
 }
 
 void _bfs(GraphNode **vexes, int v0, int *visited){

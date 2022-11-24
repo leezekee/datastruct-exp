@@ -4,9 +4,10 @@
 // 存放所有头文件，避免重复引用相同的头文件导致报错
 /*  现有结构为
  *  GraphNode.h
- *    |-- string
  *    |-- graphics.h
  *  line.h
+ *    |-- GraphNode.h
+ *  my-algorithm.h
  *    |-- GraphNode.h
  *
  * */
@@ -16,6 +17,5 @@
 // 需要的头文件加这里， 不要和上边重复
 #include "draw.h"
 #include "my-algorithm.h"
-#include <iostream>
 
 #endif //DATASTRUCT_EXP_PUBLIC_H

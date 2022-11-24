@@ -3,34 +3,45 @@ project(datastruct-exp)
 
 set(CMAKE_CXX_STANDARD 14)
 
-# 本地的include和lib目录
-set(LOCAL_INC_DIR "F:/Program Files (x86)/EGE20.08/include")
-set(LOCAL_LINK_DIR "F:/Program Files (x86)/EGE20.08/lib/mingw64")
 
-set(EGE_INC_DIR ${LOCAL_INC_DIR})
-set(EGE_LINK_DIR ${LOCAL_LINK_DIR})
 set(PROJECT_INC_DIR ${PROJECT_SOURCE_DIR}/include)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
-set(EGE_LIB libgraphics64.a
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
+set(NEEDED_LIB libgraphics64.a
         libgdi32.a libimm32.a libmsimg32.a libole32.a
         liboleaut32.a libwinmm.a libuuid.a libgdiplus.a
         )
 
-include_directories(${EGE_INC_DIR}
-        ${PROJECT_INC_DIR}
+include_directories(${PROJECT_INC_DIR}
+#        ${PROJECT_INC_DIR}/ege
         )
-link_directories(${EGE_LINK_DIR})
+link_directories(${PROJECT_SOURCE_DIR}/lib)
 
+#aux_source_directory(./src SOURCE)
+#
+## 生成dll
+#add_library(${PROJECT_NAME} SHARED ${SOURCE} ${PROJECT_INC_DIR})
+#install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${PROJECT_SOURCE_DIR}/lib)
+#SET_TARGET_PROPERTIES(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE C)
 aux_source_directory(./src SOURCE)
-add_library(${PROJECT_NAME} SHARED
-        ${SOURCE}
-        )
+aux_source_directory(./include INCLUDE)
 
-add_executable(demo-dfs example/demo.cpp)
-target_link_libraries(demo-dfs
+# 生成dll
+add_library(${PROJECT_NAME} SHARED ${SOURCE} ${INCLUDE})
+install(TARGETS ${PROJECT_NAME} DESTINATION  ${PROJECT_SOURCE_DIR}/lib)
+SET_TARGET_PROPERTIES(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE C
+        OUTPUT_NAME ${PROJECT_NAME}
+        PREFIX "")
+
+add_executable(demo-test example/demo-test.cpp)
+target_link_libraries(demo-test
         ${PROJECT_NAME}
-        ${EGE_LIB}
+#        ${PROJECT_SOURCE_DIR}/lib
+        ${NEEDED_LIB}
 )
+
 
 
 

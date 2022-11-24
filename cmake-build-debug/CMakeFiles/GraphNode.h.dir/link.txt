@@ -1,0 +1,3 @@
+"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\GraphNode.h.dir/objects.a
+E:\MinGW\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\ar.exe cr CMakeFiles\GraphNode.h.dir/objects.a @CMakeFiles\GraphNode.h.dir\objects1.rsp
+E:\MinGW\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\GraphNode.h.dir/objects.a -Wl,--no-whole-archive -o GraphNode.h.exe -Wl,--out-implib,libGraphNode.h.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\GraphNode.h.dir\linklibs.rsp

@@ -1,0 +1,3 @@
+"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\datastruct-exp.dir/objects.a
+E:\MinGW\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\ar.exe cr CMakeFiles\datastruct-exp.dir/objects.a @CMakeFiles\datastruct-exp.dir\objects1.rsp
+E:\MinGW\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\gcc.exe -g -shared -o ..\..\lib\datastruct-exp.dll -Wl,--out-implib,libdatastruct-exp.dll.a -Wl,--major-image-version,0,--minor-image-version,0 -Wl,--whole-archive CMakeFiles\datastruct-exp.dir/objects.a -Wl,--no-whole-archive @CMakeFiles\datastruct-exp.dir\linklibs.rsp

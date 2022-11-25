@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "G:/Desktop/datastruct-exp/src/GraphNode.cpp" "G:/Desktop/datastruct-exp/cmake-build-debug/CMakeFiles/datastruct-exp.dir/src/GraphNode.cpp.obj"
-  "G:/Desktop/datastruct-exp/src/draw.cpp" "G:/Desktop/datastruct-exp/cmake-build-debug/CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj"
-  "G:/Desktop/datastruct-exp/src/my-algorithm.cpp" "G:/Desktop/datastruct-exp/cmake-build-debug/CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj"
+  "E:/repo/src/GraphNode.cpp" "E:/repo/cmake-build-debug/CMakeFiles/datastruct-exp.dir/src/GraphNode.cpp.obj"
+  "E:/repo/src/draw.cpp" "E:/repo/cmake-build-debug/CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj"
+  "E:/repo/src/my-algorithm.cpp" "E:/repo/cmake-build-debug/CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -1,0 +1,3 @@
+"D:\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\my-test.dir/objects.a
+E:\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\ar.exe cr CMakeFiles\my-test.dir/objects.a @CMakeFiles\my-test.dir\objects1.rsp
+E:\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\my-test.dir/objects.a -Wl,--no-whole-archive -o ..\bin\my-test.exe -Wl,--out-implib,..\lib\libmy-test.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\my-test.dir\linklibs.rsp

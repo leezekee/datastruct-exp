@@ -41,6 +41,7 @@ SET_TARGET_PROPERTIES(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE C
         PREFIX "")
 
 add_executable(demo-test example/demo-test.cpp)
+add_executable(my-test example/my-test.cpp)
 target_link_libraries(demo-test
         ${PROJECT_NAME}
         ${PROJECT_SOURCE_DIR}/lib

@@ -53,4 +53,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/datastruct-exp.dir/DependInfo.cmake"
   "CMakeFiles/demo-test.dir/DependInfo.cmake"
+  "CMakeFiles/my-test.dir/DependInfo.cmake"
   )

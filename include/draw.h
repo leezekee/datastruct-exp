@@ -9,6 +9,7 @@
 void drawLine(GraphNode &na, GraphNode &nb, color_t RGB);// 画两个结点之间的线
 void visitNode(GraphNode &gn);
 void drawNode(GraphNode &gn, color_t RGB, color_t FontRGB);
+void deleteNode();
 
 
 #endif //DATASTRUCT_EXP_DRAW_H

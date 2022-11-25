@@ -34,3 +34,7 @@ void drawNode(GraphNode &gn, color_t RGB, color_t FontRGB) {
     outtextxy(gn.getX()-5, gn.getY()-8, gn.getS());
 //    std::cout << gn.getS() << std::endl;
 }
+
+void deleteNode(){
+
+}

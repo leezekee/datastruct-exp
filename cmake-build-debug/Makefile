@@ -84,17 +84,17 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	"D:\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	"D:\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install
 
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	"D:\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	"D:\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -107,18 +107,6 @@ install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	"D:\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	"D:\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	"D:\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
-.PHONY : install/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -141,6 +129,18 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	"D:\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	"D:\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -200,6 +200,19 @@ demo-test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\demo-test.dir\build.make CMakeFiles/demo-test.dir/build
 .PHONY : demo-test/fast
 
+#=============================================================================
+# Target rules for targets named my-test
+
+# Build rule for target.
+my-test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 my-test
+.PHONY : my-test
+
+# fast build rule for target.
+my-test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my-test.dir\build.make CMakeFiles/my-test.dir/build
+.PHONY : my-test/fast
+
 example/demo-test.obj: example/demo-test.cpp.obj
 
 .PHONY : example/demo-test.obj
@@ -226,6 +239,33 @@ example/demo-test.s: example/demo-test.cpp.s
 example/demo-test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\demo-test.dir\build.make CMakeFiles/demo-test.dir/example/demo-test.cpp.s
 .PHONY : example/demo-test.cpp.s
+
+example/my-test.obj: example/my-test.cpp.obj
+
+.PHONY : example/my-test.obj
+
+# target to build an object file
+example/my-test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my-test.dir\build.make CMakeFiles/my-test.dir/example/my-test.cpp.obj
+.PHONY : example/my-test.cpp.obj
+
+example/my-test.i: example/my-test.cpp.i
+
+.PHONY : example/my-test.i
+
+# target to preprocess a source file
+example/my-test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my-test.dir\build.make CMakeFiles/my-test.dir/example/my-test.cpp.i
+.PHONY : example/my-test.cpp.i
+
+example/my-test.s: example/my-test.cpp.s
+
+.PHONY : example/my-test.s
+
+# target to generate assembly for a file
+example/my-test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\my-test.dir\build.make CMakeFiles/my-test.dir/example/my-test.cpp.s
+.PHONY : example/my-test.cpp.s
 
 src/GraphNode.obj: src/GraphNode.cpp.obj
 
@@ -322,9 +362,13 @@ help:
 	@echo ... rebuild_cache
 	@echo ... datastruct-exp
 	@echo ... demo-test
+	@echo ... my-test
 	@echo ... example/demo-test.obj
 	@echo ... example/demo-test.i
 	@echo ... example/demo-test.s
+	@echo ... example/my-test.obj
+	@echo ... example/my-test.i
+	@echo ... example/my-test.s
 	@echo ... src/GraphNode.obj
 	@echo ... src/GraphNode.i
 	@echo ... src/GraphNode.s

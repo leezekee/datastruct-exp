@@ -14,9 +14,10 @@ GraphNode::GraphNode() {
     this->radius = 5;
     itoa(nodeNumber * - 1, this->name, 10);
     this->isVisible = false;
-    this->red = 0;
-    this->green = 0;
-    this->blue = 0;
+    this->red = 255;
+    this->green = 255;
+    this->blue = 255;
+//    this->RGB = EGERGB(255, 255, 255);
     nodeNumber++;
 }
 
@@ -28,9 +29,10 @@ GraphNode::GraphNode(int x, int y) {
     this->radius = 5;
     itoa(nodeNumber * - 1, this->name, 10);
     this->isVisible = false;
-    this->red = 0;
-    this->green = 0;
-    this->blue = 0;
+//    this->RGB = EGERGB(255, 255, 255);
+    this->red = 255;
+    this->green = 255;
+    this->blue = 255;
     nodeNumber++;
 }
 
@@ -42,9 +44,10 @@ GraphNode::GraphNode(int x, int y, int r) {
     this->radius = r;
     itoa(nodeNumber * - 1, this->name, 10);
     this->isVisible = false;
-    this->red = 0;
-    this->green = 0;
-    this->blue = 0;
+//    this->RGB = EGERGB(255, 255, 255);
+    this->red = 255;
+    this->green = 255;
+    this->blue = 255;
     nodeNumber++;
 }
 
@@ -56,6 +59,7 @@ GraphNode::GraphNode(GraphNode &other) {
     this->radius = other.radius;
     itoa(nodeNumber * - 1, this->name, 10);
     this->isVisible = other.isVisible;
+//    this->RGB = other.RGB;
     this->red = other.red;
     this->green = other.green;
     this->blue = other.blue;
@@ -72,10 +76,14 @@ void GraphNode::setXYR(int _x, int _y, int _radius) {
     this->radius = _radius;
 }
 
-void GraphNode::setRGB(int R, int G, int B) {
+void GraphNode::setRGB(BYTE R, BYTE G, BYTE B) {
+//    this->RGB.red = R;
+//    this->RGB.blue = G;
+//    this->RGB.red = B;
+//    this->RGB = EGERGB(R, G, B);
     this->red = R;
-    this->green = G;
     this->blue = B;
+    this->green = G;
 }
 
 void GraphNode::setVisibility(bool _visibility) {
@@ -86,9 +94,9 @@ void GraphNode::changeVisibility() {
     this->isVisible = !this->isVisible;
 }
 
-color_t GraphNode::getRGB() {
-    return EGERGB(this->red, this->green, this->blue);
-}
+//color_t GraphNode::getRGB() const {
+//    return this->RGB;
+//}
 
 void GraphNode::setString(char *_name) {
     memcpy(this->name, _name, sizeof(_name));
@@ -113,9 +121,9 @@ GraphNode &GraphNode::operator=(int adj) {
     return *this;
 }
 
-color_t GraphNode::getFontColor() const {
-    return EGERGB(255-this->red, 255-this->green, 255-this->blue);
-}
+//color_t GraphNode::getFontColor() const {
+//    return ~this->RGB;
+//}
 
 
 

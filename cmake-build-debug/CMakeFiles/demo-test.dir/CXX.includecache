@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/GraphNode.h
+graphics.h
+-
+iostream
+-
+
+../include/draw.h
+GraphNode.h
+../include/GraphNode.h
+
+../include/ege.h
+windows.h
+../include/windows.h
+
+../include/graphics.h
+ege.h
+../include/ege.h
+
+../include/my-algorithm.h
+GraphNode.h
+../include/GraphNode.h
+
+../include/public.h
+draw.h
+../include/draw.h
+my-algorithm.h
+../include/my-algorithm.h
+
+G:/Desktop/datastruct-exp/example/demo-test.cpp
+public.h
+G:/Desktop/datastruct-exp/example/public.h
+

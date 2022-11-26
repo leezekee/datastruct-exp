@@ -12,7 +12,8 @@ public:
     int adjInfo;
     BYTE red;
     BYTE blue;
-    BYTE green;
+    BYTE green; 
+    static int nodeNumber; // 所有结点数量
 //    class RGBcolor{
 //    public:
 //        int red;    // 结点RGB数据
@@ -25,7 +26,7 @@ private:
     int radius;  // 结点圆的半径
     char name[3]{};  // 结点的内容
     bool isVisible; // 结点是否可见
-    static int nodeNumber; // 所有结点数量
+
 //    RGBcolor RGB; // 结点RGB数据
 //    color_t RGB;
 public:
@@ -51,6 +52,7 @@ public:
     bool operator==(int adj) const;
     friend std::ostream & operator<<(std::ostream &out, GraphNode &G);
     friend std::istream & operator>>(std::istream &in, GraphNode &G);
+
 };
 
 #endif //DATASTRUCT_EXP_GRAPHNODE_H

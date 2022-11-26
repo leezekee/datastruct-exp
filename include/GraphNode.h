@@ -6,13 +6,14 @@
 #define DATASTRUCT_EXP_GRAPHNODE_H
 #include <graphics.h>
 #include <iostream>
-
+#include<vector>
+#include<queue>
 class GraphNode {
 public:
     int adjInfo;
     BYTE red;
     BYTE blue;
-    BYTE green; 
+    BYTE green;
     static int nodeNumber; // 所有结点数量
 //    class RGBcolor{
 //    public:

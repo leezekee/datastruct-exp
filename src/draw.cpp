@@ -7,10 +7,10 @@
 // 画两个结点之间的线
 void drawLine(GraphNode &na, GraphNode &nb, color_t RGB){
     setcolor(RGB);
-    line(na.getX(), na.getY() + na.getR(), nb.getX(), nb.getY() - na.getR());
+//    line(na.getX(), na.getY() + na.getR(), nb.getX(), nb.getY() - na.getR());
 
 // if right:
-//    line(na.getX() + na.getR() * 0.293, na.getY() + na.getR() * 0.293, nb.getX() - na.getR() * 0.293, nb.getY() - na.getR() * 0.293);
+    line(na.getX() + na.getR() * 0.293, na.getY() + na.getR() * 0.293, nb.getX() - na.getR() * 0.293, nb.getY() - na.getR() * 0.293);
 // if right:
 //    line(na.getX() - na.getR() * 0.293, na.getY() - na.getR() * 0.293, nb.getX() + na.getR() * 0.293, nb.getY() + na.getR() * 0.293);
 

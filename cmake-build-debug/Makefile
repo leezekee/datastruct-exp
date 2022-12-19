@@ -84,17 +84,17 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install
 
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -107,18 +107,6 @@ install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
-.PHONY : install/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -141,6 +129,18 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -200,6 +200,19 @@ demo-test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\demo-test.dir\build.make CMakeFiles/demo-test.dir/build
 .PHONY : demo-test/fast
 
+#=============================================================================
+# Target rules for targets named draw-array-test
+
+# Build rule for target.
+draw-array-test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 draw-array-test
+.PHONY : draw-array-test
+
+# fast build rule for target.
+draw-array-test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\draw-array-test.dir\build.make CMakeFiles/draw-array-test.dir/build
+.PHONY : draw-array-test/fast
+
 example/demo-test.obj: example/demo-test.cpp.obj
 
 .PHONY : example/demo-test.obj
@@ -226,6 +239,33 @@ example/demo-test.s: example/demo-test.cpp.s
 example/demo-test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\demo-test.dir\build.make CMakeFiles/demo-test.dir/example/demo-test.cpp.s
 .PHONY : example/demo-test.cpp.s
+
+example/draw-array-test.obj: example/draw-array-test.cpp.obj
+
+.PHONY : example/draw-array-test.obj
+
+# target to build an object file
+example/draw-array-test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\draw-array-test.dir\build.make CMakeFiles/draw-array-test.dir/example/draw-array-test.cpp.obj
+.PHONY : example/draw-array-test.cpp.obj
+
+example/draw-array-test.i: example/draw-array-test.cpp.i
+
+.PHONY : example/draw-array-test.i
+
+# target to preprocess a source file
+example/draw-array-test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\draw-array-test.dir\build.make CMakeFiles/draw-array-test.dir/example/draw-array-test.cpp.i
+.PHONY : example/draw-array-test.cpp.i
+
+example/draw-array-test.s: example/draw-array-test.cpp.s
+
+.PHONY : example/draw-array-test.s
+
+# target to generate assembly for a file
+example/draw-array-test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\draw-array-test.dir\build.make CMakeFiles/draw-array-test.dir/example/draw-array-test.cpp.s
+.PHONY : example/draw-array-test.cpp.s
 
 src/GraphNode.obj: src/GraphNode.cpp.obj
 
@@ -322,9 +362,13 @@ help:
 	@echo ... rebuild_cache
 	@echo ... datastruct-exp
 	@echo ... demo-test
+	@echo ... draw-array-test
 	@echo ... example/demo-test.obj
 	@echo ... example/demo-test.i
 	@echo ... example/demo-test.s
+	@echo ... example/draw-array-test.obj
+	@echo ... example/draw-array-test.i
+	@echo ... example/draw-array-test.s
 	@echo ... src/GraphNode.obj
 	@echo ... src/GraphNode.i
 	@echo ... src/GraphNode.s

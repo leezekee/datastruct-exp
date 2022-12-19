@@ -46,6 +46,12 @@ target_link_libraries(demo-test
         ${PROJECT_SOURCE_DIR}/lib
         ${NEEDED_LIB}
 )
+add_executable(draw-array-test example/draw-array-test.cpp)
+target_link_libraries(draw-array-test
+        ${PROJECT_NAME}
+        ${PROJECT_SOURCE_DIR}/lib
+        ${NEEDED_LIB}
+        )
 
 
 

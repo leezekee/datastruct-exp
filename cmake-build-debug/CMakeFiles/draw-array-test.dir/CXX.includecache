@@ -9,11 +9,7 @@
 ../include/GraphNode.h
 graphics.h
 -
-vector
--
 iostream
--
-iomanip
 -
 xmath.h
 -
@@ -44,7 +40,7 @@ draw.h
 my-algorithm.h
 ../include/my-algorithm.h
 
-G:/Desktop/datastruct-exp/example/demo-test.cpp
+G:/Desktop/datastruct-exp/example/draw-array-test.cpp
 public.h
-G:/Desktop/datastruct-exp/example/public.h
+-
 

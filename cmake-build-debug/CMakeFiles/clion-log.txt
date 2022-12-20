@@ -1,6 +1,8 @@
 "D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" G:\Desktop\datastruct-exp
 -- Configuring done
+WARNING: Target "bfs-test" requests linking to directory "G:/Desktop/datastruct-exp/lib".  Targets may link only to libraries.  CMake is dropping the item.
 WARNING: Target "demo-test" requests linking to directory "G:/Desktop/datastruct-exp/lib".  Targets may link only to libraries.  CMake is dropping the item.
 WARNING: Target "draw-array-test" requests linking to directory "G:/Desktop/datastruct-exp/lib".  Targets may link only to libraries.  CMake is dropping the item.
+WARNING: Target "dfs-test" requests linking to directory "G:/Desktop/datastruct-exp/lib".  Targets may link only to libraries.  CMake is dropping the item.
 -- Generating done
 -- Build files have been written to: G:/Desktop/datastruct-exp/cmake-build-debug

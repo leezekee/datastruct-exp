@@ -52,6 +52,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/datastruct-exp.dir/DependInfo.cmake"
+  "CMakeFiles/bfs-test.dir/DependInfo.cmake"
   "CMakeFiles/demo-test.dir/DependInfo.cmake"
   "CMakeFiles/draw-array-test.dir/DependInfo.cmake"
+  "CMakeFiles/dfs-test.dir/DependInfo.cmake"
   )

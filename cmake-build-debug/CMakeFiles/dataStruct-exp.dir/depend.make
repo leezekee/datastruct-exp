@@ -13,6 +13,7 @@ CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj: ../include/graphics.h
 CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj: ../src/draw.cpp
 
 CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj: ../include/GraphNode.h
+CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj: ../include/draw.h
 CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj: ../include/ege.h
 CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj: ../include/graphics.h
 CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj: ../include/my-algorithm.h

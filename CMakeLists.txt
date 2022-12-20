@@ -52,7 +52,18 @@ target_link_libraries(draw-array-test
         ${PROJECT_SOURCE_DIR}/lib
         ${NEEDED_LIB}
         )
-
+add_executable(dfs-test example/dfs-test.cpp)
+target_link_libraries(dfs-test
+        ${PROJECT_NAME}
+        ${PROJECT_SOURCE_DIR}/lib
+        ${NEEDED_LIB}
+        )
+add_executable(bfs-test example/bfs-test.cpp)
+target_link_libraries(bfs-test
+        ${PROJECT_NAME}
+        ${PROJECT_SOURCE_DIR}/lib
+        ${NEEDED_LIB}
+        )
 
 
 

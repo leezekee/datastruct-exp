@@ -18,6 +18,14 @@ iomanip
 xmath.h
 -
 
+../include/draw.h
+GraphNode.h
+../include/GraphNode.h
+cmath
+-
+xmath.h
+-
+
 ../include/ege.h
 windows.h
 ../include/windows.h
@@ -26,7 +34,23 @@ windows.h
 ege.h
 ../include/ege.h
 
-G:/Desktop/datastruct-exp/src/GraphNode.cpp
+../include/my-algorithm.h
 GraphNode.h
-G:/Desktop/datastruct-exp/src/GraphNode.h
+../include/GraphNode.h
+draw.h
+-
+queue
+-
+utility
+-
+
+../include/public.h
+draw.h
+../include/draw.h
+my-algorithm.h
+../include/my-algorithm.h
+
+G:/Desktop/datastruct-exp/example/dfs-test.cpp
+public.h
+G:/Desktop/datastruct-exp/example/public.h
 

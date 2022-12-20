@@ -84,30 +84,6 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -129,6 +105,30 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
@@ -188,6 +188,19 @@ datastruct-exp/fast:
 .PHONY : datastruct-exp/fast
 
 #=============================================================================
+# Target rules for targets named bfs-test
+
+# Build rule for target.
+bfs-test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 bfs-test
+.PHONY : bfs-test
+
+# fast build rule for target.
+bfs-test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\bfs-test.dir\build.make CMakeFiles/bfs-test.dir/build
+.PHONY : bfs-test/fast
+
+#=============================================================================
 # Target rules for targets named demo-test
 
 # Build rule for target.
@@ -212,6 +225,46 @@ draw-array-test: cmake_check_build_system
 draw-array-test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\draw-array-test.dir\build.make CMakeFiles/draw-array-test.dir/build
 .PHONY : draw-array-test/fast
+
+#=============================================================================
+# Target rules for targets named dfs-test
+
+# Build rule for target.
+dfs-test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 dfs-test
+.PHONY : dfs-test
+
+# fast build rule for target.
+dfs-test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dfs-test.dir\build.make CMakeFiles/dfs-test.dir/build
+.PHONY : dfs-test/fast
+
+example/bfs-test.obj: example/bfs-test.cpp.obj
+
+.PHONY : example/bfs-test.obj
+
+# target to build an object file
+example/bfs-test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\bfs-test.dir\build.make CMakeFiles/bfs-test.dir/example/bfs-test.cpp.obj
+.PHONY : example/bfs-test.cpp.obj
+
+example/bfs-test.i: example/bfs-test.cpp.i
+
+.PHONY : example/bfs-test.i
+
+# target to preprocess a source file
+example/bfs-test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\bfs-test.dir\build.make CMakeFiles/bfs-test.dir/example/bfs-test.cpp.i
+.PHONY : example/bfs-test.cpp.i
+
+example/bfs-test.s: example/bfs-test.cpp.s
+
+.PHONY : example/bfs-test.s
+
+# target to generate assembly for a file
+example/bfs-test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\bfs-test.dir\build.make CMakeFiles/bfs-test.dir/example/bfs-test.cpp.s
+.PHONY : example/bfs-test.cpp.s
 
 example/demo-test.obj: example/demo-test.cpp.obj
 
@@ -239,6 +292,33 @@ example/demo-test.s: example/demo-test.cpp.s
 example/demo-test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\demo-test.dir\build.make CMakeFiles/demo-test.dir/example/demo-test.cpp.s
 .PHONY : example/demo-test.cpp.s
+
+example/dfs-test.obj: example/dfs-test.cpp.obj
+
+.PHONY : example/dfs-test.obj
+
+# target to build an object file
+example/dfs-test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dfs-test.dir\build.make CMakeFiles/dfs-test.dir/example/dfs-test.cpp.obj
+.PHONY : example/dfs-test.cpp.obj
+
+example/dfs-test.i: example/dfs-test.cpp.i
+
+.PHONY : example/dfs-test.i
+
+# target to preprocess a source file
+example/dfs-test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dfs-test.dir\build.make CMakeFiles/dfs-test.dir/example/dfs-test.cpp.i
+.PHONY : example/dfs-test.cpp.i
+
+example/dfs-test.s: example/dfs-test.cpp.s
+
+.PHONY : example/dfs-test.s
+
+# target to generate assembly for a file
+example/dfs-test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dfs-test.dir\build.make CMakeFiles/dfs-test.dir/example/dfs-test.cpp.s
+.PHONY : example/dfs-test.cpp.s
 
 example/draw-array-test.obj: example/draw-array-test.cpp.obj
 
@@ -360,12 +440,20 @@ help:
 	@echo ... install/strip
 	@echo ... list_install_components
 	@echo ... rebuild_cache
+	@echo ... bfs-test
 	@echo ... datastruct-exp
 	@echo ... demo-test
+	@echo ... dfs-test
 	@echo ... draw-array-test
+	@echo ... example/bfs-test.obj
+	@echo ... example/bfs-test.i
+	@echo ... example/bfs-test.s
 	@echo ... example/demo-test.obj
 	@echo ... example/demo-test.i
 	@echo ... example/demo-test.s
+	@echo ... example/dfs-test.obj
+	@echo ... example/dfs-test.i
+	@echo ... example/dfs-test.s
 	@echo ... example/draw-array-test.obj
 	@echo ... example/draw-array-test.i
 	@echo ... example/draw-array-test.s

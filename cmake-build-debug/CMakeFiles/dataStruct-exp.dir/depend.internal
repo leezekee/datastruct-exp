@@ -14,6 +14,7 @@ CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj
  G:/Desktop/datastruct-exp/src/draw.cpp
 CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj
  ../include/GraphNode.h
+ ../include/draw.h
  ../include/ege.h
  ../include/graphics.h
  ../include/my-algorithm.h

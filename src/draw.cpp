@@ -71,9 +71,9 @@ void drawArrowLine(const GraphNode &gn1, const GraphNode &gn2, char *label) {
 }
 
 void drawNode(GraphNode &gn) {
-    int x = gn.getX(), y = gn.getY();
-    char *label;
-    label = gn.getS();
+    int x = gn.getX(), y = gn.getY(), l = gn.getLabel();
+    char *label = new char[20];
+    sprintf(label, "%d", l);
     setcolor(0x66CCFF);
     setfillcolor(0x66CCFF);
     circle(x, y, gn.getR());
@@ -97,7 +97,7 @@ void drawNodes(Graph &g){
                 memset(label, 0, sizeof(label));
                 sprintf(label, "%.2lf", g.adjMatrix[i][j]);
                 drawArrowLine(g.nodes[i], g.nodes[j], label);
-                delay_ms(300);
+//                delay_ms(300);
             }
         }
     }
@@ -118,7 +118,7 @@ Graph inputGraph() {
     int vex = 5, edge = 6;
     Graph g(vex, edge);
     std::vector<std::vector<double>> v = {{0,0,1,1,0},
-                                          {0,0,0,0,0},
+                                          {0,0,1,0,0},
                                           {0,0,0,0,0},
                                           {0,1,0,0,1},
                                           {1,0,1,0,0}};
@@ -132,10 +132,11 @@ Graph CreateGraph() {
         int x = 300 + 200 * cos((double)i / g.vertexNumber * 2 * PI - PI / 2);
         int y = 300 + 200 * sin((double)i / g.vertexNumber * 2 * PI - PI / 2);
         g.nodes[i].setXYR(x, y);
-        char *t = new char[3];
-        memset(t, 0, sizeof(t));
-        itoa(i + 1, t, 10);
-        g.nodes[i].setString(t);
+//        char *t = new char[20];
+//        memset(t, 0, sizeof(t));
+//        sprintf(t, "%d", i + 1);
+//        g.nodes[i].setString(t);
+        g.nodes[i].setLabel(i + 1);
     }
     return g;
 }
@@ -155,3 +156,4 @@ void showGraph(Graph &g) {
         }
     }
 }
+

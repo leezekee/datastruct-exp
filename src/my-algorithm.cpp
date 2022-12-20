@@ -18,6 +18,9 @@ void dfs(Graph &g, int v0, int *_visited, std::vector<std::pair<int, int>> &oper
 }
 
 void dfs(Graph &g, std::vector<std::pair<int, int>> &operation){
+    for (auto &each : g.nodes) {
+        each.setVisibility(false);
+    }
     int visited[g.vertexNumber] = {0};
     for (int i = 0; i < g.vertexNumber; i++) {
         if (!visited[i]) {
@@ -52,6 +55,9 @@ void bfs(Graph &g, int v0, int *visited, std::vector<std::pair<int, int>> &opera
 }
 
 void bfs(Graph &g, std::vector<std::pair<int, int>> &operation) {
+    for (auto &each : g.nodes) {
+        each.setVisibility(false);
+    }
     int visited[g.vertexNumber] = {0};
     for (int i = 0; i < g.vertexNumber; i++) {
         if (!visited[i]) {
@@ -72,10 +78,10 @@ void visit(Graph &g, int v0, int *_visited, std::vector<std::pair<int, int>> &op
 //    drawNode(g.nodes[v0]);
     for (int i = 0; i < g.vertexNumber; i++) {
         if (g.adjMatrix[i][v0] != 0 && g.nodes[i].getVisibility()) {
-//            char label[20];
-//            memset(label, 0, sizeof(label));
-//            sprintf(label, "%.2lf", g.adjMatrix[i][v0]);
-//            drawArrowLine(g.nodes[i], g.nodes[v0], label);
+//            char b_label[20];
+//            memset(b_label, 0, sizeof(b_label));
+//            sprintf(b_label, "%.2lf", g.adjMatrix[i][v0]);
+//            drawArrowLine(g.nodes[i], g.nodes[v0], b_label);
 //            delay_ms(300);
             std::cout << i + 1 << " -> " << v0 + 1 << std::endl;
             std::pair<int, int> tmp = {i, v0};

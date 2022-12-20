@@ -1,2 +1,2 @@
-E:\MinGW\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\ar.exe qc ..\lib\datastruct-exp.a CMakeFiles/datastruct-exp.dir/src/GraphNode.cpp.obj CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj
+E:\MinGW\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\ar.exe qc ..\lib\datastruct-exp.a CMakeFiles/datastruct-exp.dir/src/GraphNode.cpp.obj CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj CMakeFiles/datastruct-exp.dir/src/gui.cpp.obj CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj
 E:\MinGW\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\ranlib.exe ..\lib\datastruct-exp.a

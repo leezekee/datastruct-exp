@@ -10,8 +10,22 @@ CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj
  ../include/GraphNode.h
  ../include/draw.h
  ../include/ege.h
+ ../include/ege/egecontrolbase.h
+ ../include/ege/sys_edit.h
  ../include/graphics.h
+ ../include/gui.h
+ ../include/my-algorithm.h
  G:/Desktop/datastruct-exp/src/draw.cpp
+CMakeFiles/datastruct-exp.dir/src/gui.cpp.obj
+ ../include/GraphNode.h
+ ../include/draw.h
+ ../include/ege.h
+ ../include/ege/egecontrolbase.h
+ ../include/ege/sys_edit.h
+ ../include/graphics.h
+ ../include/gui.h
+ ../include/my-algorithm.h
+ G:/Desktop/datastruct-exp/src/gui.cpp
 CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj
  ../include/GraphNode.h
  ../include/draw.h

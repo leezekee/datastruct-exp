@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "../lib/datastruct-exp.pdb"
   "CMakeFiles/datastruct-exp.dir/src/GraphNode.cpp.obj"
   "CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj"
+  "CMakeFiles/datastruct-exp.dir/src/gui.cpp.obj"
   "CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj"
 )
 

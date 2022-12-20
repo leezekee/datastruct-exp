@@ -5,8 +5,8 @@
 #include "GraphNode.h"
 
 GraphNode::GraphNode() {
-//    this->label = new char[20];
-//    memset(this->label, 0, 3 * sizeof(char));
+//    this->b_label = new char[20];
+//    memset(this->b_label, 0, 3 * sizeof(char));
     this->x = 0;
     this->y = 0;
     this->radius = 20;
@@ -18,8 +18,8 @@ GraphNode::GraphNode() {
 }
 
 GraphNode::GraphNode(int x, int y) {
-//    this->label = new char[20];
-//    memset(this->label, 0, 3 * sizeof(char));
+//    this->b_label = new char[20];
+//    memset(this->b_label, 0, 3 * sizeof(char));
     this->x = x;
     this->y = y;
     this->radius = 5;
@@ -31,8 +31,8 @@ GraphNode::GraphNode(int x, int y) {
 }
 
 GraphNode::GraphNode(int x, int y, int r) {
-//    this->label = new char[20];
-//    memset(this->label, 0, 3 * sizeof(char));
+//    this->b_label = new char[20];
+//    memset(this->b_label, 0, 3 * sizeof(char));
     this->x = x;
     this->y = y;
     this->radius = r;
@@ -44,7 +44,7 @@ GraphNode::GraphNode(int x, int y, int r) {
 }
 
 //GraphNode::GraphNode(GraphNode &other) {
-//    memset(this->label, 0, 3 * sizeof(char));
+//    memset(this->b_label, 0, 3 * sizeof(char));
 //    this->x = other.x;
 //    this->y = other.y;
 //    this->radius = other.radius;
@@ -56,7 +56,7 @@ GraphNode::GraphNode(int x, int y, int r) {
 //}
 
 GraphNode::~GraphNode() {
-//    delete[] this->label;
+//    delete[] this->b_label;
 }
 
 void GraphNode::setXYR(int _x, int _y, int _radius) {
@@ -83,8 +83,8 @@ void GraphNode::changeVisibility() {
     this->isVisible = !this->isVisible;
 }
 
-void GraphNode::setLabel(int label) {
-    this->label = label;
+void GraphNode::setLabel(int _label) {
+    this->label = _label;
 }
 
 //color_t GraphNode::getRGB() const {
@@ -92,10 +92,10 @@ void GraphNode::setLabel(int label) {
 //}
 
 //void GraphNode::setString(char *_name) {
-//    memcpy(this->label, _name, sizeof(_name));
-//    memmove(this->label, _name, sizeof _name);
-//    strcpy_s(this->label, sizeof(_name), _name);
-//    char *p = this->label;
+//    memcpy(this->b_label, _name, sizeof(_name));
+//    memmove(this->b_label, _name, sizeof _name);
+//    strcpy_s(this->b_label, sizeof(_name), _name);
+//    char *p = this->b_label;
 //    while (*_name != '\0') {
 //        *p = *_name;
 //        *p++;

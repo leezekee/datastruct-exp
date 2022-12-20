@@ -9,8 +9,22 @@ CMakeFiles/datastruct-exp.dir/src/GraphNode.cpp.obj: ../src/GraphNode.cpp
 CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj: ../include/GraphNode.h
 CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj: ../include/draw.h
 CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj: ../include/ege.h
+CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj: ../include/ege/egecontrolbase.h
+CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj: ../include/ege/sys_edit.h
 CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj: ../include/graphics.h
+CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj: ../include/gui.h
+CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj: ../include/my-algorithm.h
 CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj: ../src/draw.cpp
+
+CMakeFiles/datastruct-exp.dir/src/gui.cpp.obj: ../include/GraphNode.h
+CMakeFiles/datastruct-exp.dir/src/gui.cpp.obj: ../include/draw.h
+CMakeFiles/datastruct-exp.dir/src/gui.cpp.obj: ../include/ege.h
+CMakeFiles/datastruct-exp.dir/src/gui.cpp.obj: ../include/ege/egecontrolbase.h
+CMakeFiles/datastruct-exp.dir/src/gui.cpp.obj: ../include/ege/sys_edit.h
+CMakeFiles/datastruct-exp.dir/src/gui.cpp.obj: ../include/graphics.h
+CMakeFiles/datastruct-exp.dir/src/gui.cpp.obj: ../include/gui.h
+CMakeFiles/datastruct-exp.dir/src/gui.cpp.obj: ../include/my-algorithm.h
+CMakeFiles/datastruct-exp.dir/src/gui.cpp.obj: ../src/gui.cpp
 
 CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj: ../include/GraphNode.h
 CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj: ../include/draw.h

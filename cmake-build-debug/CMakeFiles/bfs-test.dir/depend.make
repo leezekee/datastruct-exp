@@ -5,6 +5,7 @@ CMakeFiles/bfs-test.dir/example/bfs-test.cpp.obj: ../include/GraphNode.h
 CMakeFiles/bfs-test.dir/example/bfs-test.cpp.obj: ../include/draw.h
 CMakeFiles/bfs-test.dir/example/bfs-test.cpp.obj: ../include/ege.h
 CMakeFiles/bfs-test.dir/example/bfs-test.cpp.obj: ../include/graphics.h
+CMakeFiles/bfs-test.dir/example/bfs-test.cpp.obj: ../include/gui.h
 CMakeFiles/bfs-test.dir/example/bfs-test.cpp.obj: ../include/my-algorithm.h
 CMakeFiles/bfs-test.dir/example/bfs-test.cpp.obj: ../include/public.h
 CMakeFiles/bfs-test.dir/example/bfs-test.cpp.obj: ../example/bfs-test.cpp

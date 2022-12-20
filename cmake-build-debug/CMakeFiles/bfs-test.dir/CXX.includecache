@@ -34,6 +34,12 @@ windows.h
 ege.h
 ../include/ege.h
 
+../include/gui.h
+graphics.h
+-
+GraphNode.h
+../include/GraphNode.h
+
 ../include/my-algorithm.h
 GraphNode.h
 ../include/GraphNode.h
@@ -49,6 +55,8 @@ draw.h
 ../include/draw.h
 my-algorithm.h
 ../include/my-algorithm.h
+gui.h
+../include/gui.h
 
 G:/Desktop/datastruct-exp/example/bfs-test.cpp
 public.h

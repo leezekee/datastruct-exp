@@ -3,6 +3,7 @@
 //
 
 #include "draw.h"
+#include <gui.h>
 
 // 画两个结点之间的线
 //void drawLine(GraphNode &na, GraphNode &nb, color_t RGB){
@@ -28,8 +29,8 @@ void visitNode(GraphNode &gn) {
 //
 //    setcolor(FontRGB);
 //    setbkmode(TRANSPARENT);
-////    char label[] = "1";
-////    gn.setString(label);
+////    char b_label[] = "1";
+////    gn.setString(b_label);
 ////    setfont(10, 5, "宋体");
 //    outtextxy(gn.getX()-5, gn.getY()-8, gn.getS());
 ////    std::cout << gn.getS() << std::endl;
@@ -55,15 +56,15 @@ void drawArrowLine(const GraphNode &gn1, const GraphNode &gn2, char *label) {
     double arrow_base_y = y_end + d;
     double arrow_out_x = x_end - a + c;
     double arrow_out_y = y_end + b + d;
-    setcolor(0xEE0000);
+    setcolor(0xFF6D31);
     line(x_begin, y_begin, x_end, y_end);
     line(x_end, y_end, arrow_base_x, arrow_base_y);
     line(x_end, y_end, arrow_out_x, arrow_out_y);
     line(arrow_base_x, arrow_base_y, arrow_out_x, arrow_out_y);
     double arrow_center_x = (arrow_base_x + arrow_out_x + x_end) / 3;
     double arrow_center_y = (arrow_base_y + arrow_out_y + y_end) / 3;
-    setfillcolor(0xEE0000);
-    floodfill(arrow_center_x, arrow_center_y, 0xEE0000);
+    setfillcolor(0xFF6D31);
+    floodfill(arrow_center_x, arrow_center_y, 0xFF6D31);
     double x_center = (x_begin + x_end) / 2 - a * 2;
     double y_center = (y_begin + y_end) / 2 + b * 2;
     setfont(18, 0, "黑体");
@@ -74,12 +75,27 @@ void drawNode(GraphNode &gn) {
     int x = gn.getX(), y = gn.getY(), l = gn.getLabel();
     char *label = new char[20];
     sprintf(label, "%d", l);
-    setcolor(0x66CCFF);
-    setfillcolor(0x66CCFF);
+    setcolor(0x29A2C6);
+    setfillcolor(0x29A2C6);
     circle(x, y, gn.getR());
-    floodfill(x, y, 0x66CCFF);
+    floodfill(x, y, 0x29A2C6);
     setbkmode(TRANSPARENT);
-    setcolor(0xEE0000);
+    setcolor(0xFFCB18);
+    setfont(36, 0, "黑体");
+    settextjustify(CENTER_TEXT, CENTER_TEXT);
+    xyprintf(x, y, label);
+}
+
+void drawVisibleNode(GraphNode &gn) {
+    int x = gn.getX(), y = gn.getY(), l = gn.getLabel();
+    char *label = new char[20];
+    sprintf(label, "%d", l);
+    setcolor(0x73B66B);
+    setfillcolor(0x73B66B);
+    circle(x, y, gn.getR());
+    floodfill(x, y, 0x73B66B);
+    setbkmode(TRANSPARENT);
+    setcolor(0xFFCB18);
     setfont(36, 0, "黑体");
     settextjustify(CENTER_TEXT, CENTER_TEXT);
     xyprintf(x, y, label);
@@ -104,33 +120,16 @@ void drawNodes(Graph &g){
 }
 
 Graph inputGraph() {
-//    int vex, edge;
-//    std::cout << "input vertex number: ";
-//    std::cin >> vex;
-//    std::cout << "input edge number: ";
-//    std::cin >> edge;
-//    std::cout << "input adjMatrix: " << std::endl;
-//    Graph g(vex, edge);
-//    std::cin >> g;
-//    return g;
-
-    // test
-    int vex = 5, edge = 6;
-    Graph g(vex, edge);
-    std::vector<std::vector<double>> v = {{0,0,1,1,0},
-                                          {0,0,1,0,0},
-                                          {0,0,0,0,0},
-                                          {0,1,0,0,1},
-                                          {1,0,1,0,0}};
-    g.adjMatrix.swap(v);
+    Graph g;
+    input(g);
     return g;
 }
 
 Graph CreateGraph() {
     Graph g = inputGraph();
     for (int i = 0; i < g.vertexNumber; ++i) {
-        int x = 300 + 200 * cos((double)i / g.vertexNumber * 2 * PI - PI / 2);
-        int y = 300 + 200 * sin((double)i / g.vertexNumber * 2 * PI - PI / 2);
+        int x = 430 + 300 * cos((double)i / g.vertexNumber * 2 * PI - PI / 2);
+        int y = 430 + 300 * sin((double)i / g.vertexNumber * 2 * PI - PI / 2);
         g.nodes[i].setXYR(x, y);
 //        char *t = new char[20];
 //        memset(t, 0, sizeof(t));
@@ -148,12 +147,39 @@ void showGraph(Graph &g) {
     for (int i = 0; i < g.vertexNumber; i++) {
         for (int j = 0; j < g.vertexNumber; j++) {
             if (g.adjMatrix[i][j] != 0) {
-                char label[20];
-                memset(label, 0, sizeof(label));
+                char label[20] = "";
                 sprintf(label, "%.2lf", g.adjMatrix[i][j]);
                 drawArrowLine(g.nodes[i], g.nodes[j], label);
             }
         }
+    }
+}
+
+void showOpNext(Graph &g, std::vector<std::pair<int, int>> operation, int index) {
+    for (int i = 0; i < g.vertexNumber; i++) {
+        if (g.nodes[i].getVisibility())
+            drawVisibleNode(g.nodes[i]);
+        else
+            drawNode(g.nodes[i]);
+    }
+    for (int i = 0; i <= index; i++) {
+        char label[20] = "";
+        sprintf(label, "%.2lf", g.adjMatrix[operation[i].first][operation[i].second]);
+        drawArrowLine(g.nodes[operation[i].first], g.nodes[operation[i].second], label);
+    }
+}
+
+void showOpPrev(Graph &g, std::vector<std::pair<int, int>> operation, int index) {
+    for (int i = 0; i < g.vertexNumber; i++) {
+        if (g.nodes[i].getVisibility())
+            drawVisibleNode(g.nodes[i]);
+        else
+            drawNode(g.nodes[i]);
+    }
+    for (int i = 0; i < index; i++) {
+        char label[20] = "";
+        sprintf(label, "%.2lf", g.adjMatrix[operation[i].first][operation[i].second]);
+        drawArrowLine(g.nodes[operation[i].first], g.nodes[operation[i].second], label);
     }
 }
 

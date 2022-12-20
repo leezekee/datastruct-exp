@@ -15,6 +15,8 @@ void drawArrowLine(const GraphNode &gn1, const GraphNode &gn2, char *label);
 void drawNodes(Graph &g);
 void showGraph(Graph &g);
 void drawNode(GraphNode &gn);
+void showOpNext(Graph &g, std::vector<std::pair<int, int>> operation, int index);
+void showOpPrev(Graph &g, std::vector<std::pair<int, int>> operation, int index);
 Graph CreateGraph();
 
 void PrintPath(GraphNode** &gn);

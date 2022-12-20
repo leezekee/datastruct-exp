@@ -64,6 +64,15 @@ target_link_libraries(bfs-test
         ${PROJECT_SOURCE_DIR}/lib
         ${NEEDED_LIB}
         )
-
-
-
+add_executable(gui-test example/gui-test.cpp)
+target_link_libraries(gui-test
+        ${PROJECT_NAME}
+        ${PROJECT_SOURCE_DIR}/lib
+        ${NEEDED_LIB}
+        )
+add_executable(visualization-of-bfs-and-dfs example/visualization-of-bfs-and-dfs.cpp)
+target_link_libraries(visualization-of-bfs-and-dfs
+        ${PROJECT_NAME}
+        ${PROJECT_SOURCE_DIR}/lib
+        ${NEEDED_LIB}
+        )

@@ -4,8 +4,9 @@
 
 #include "public.h"
 int main() {
+
     initgraph(600, 600);
-    std::vector<std::pair<int, int>> operation;
+    std::vector<std::pair<int, int>> operation{};
     setbkcolor(WHITE);
     Graph g = CreateGraph();
     showGraph(g);
@@ -27,22 +28,9 @@ int main() {
         while (kbmsg()) {
             key_msg keyMsg = getkey();
             if (keyMsg.key == key_A && keyMsg.msg == key_msg_down) {
-                std::cout << "press a" << std::endl;
-                if (index >= operation.size())
-                    continue;
-                int start = operation[index].first, end = operation[index].second;
-                std::cout << index << " " << start << " " << end << std::endl;
-                g.nodes[start].setVisibility(true);
-                g.nodes[end].setVisibility(true);
-                cleardevice();
-                drawNodes(g);
-                index++;
+                nextStep(g, operation, index);
             } else if (keyMsg.key == key_Z  && keyMsg.msg == key_msg_down) {
-                if (index <= 0) continue;
-                int end = operation[--index].second;
-                g.nodes[end].setVisibility(false);
-                cleardevice();
-                drawNodes(g);
+                prevStep(g, operation, index);
             }
         }
     }

@@ -74,15 +74,17 @@ CMAKE_BINARY_DIR = G:\Desktop\datastruct-exp\cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -105,6 +107,16 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -129,18 +141,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	"D:\Program Files\JetBrains\CLion 2021.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -186,6 +186,19 @@ datastruct-exp: cmake_check_build_system
 datastruct-exp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\datastruct-exp.dir\build.make CMakeFiles/datastruct-exp.dir/build
 .PHONY : datastruct-exp/fast
+
+#=============================================================================
+# Target rules for targets named visualization-of-bfs-and-dfs
+
+# Build rule for target.
+visualization-of-bfs-and-dfs: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 visualization-of-bfs-and-dfs
+.PHONY : visualization-of-bfs-and-dfs
+
+# fast build rule for target.
+visualization-of-bfs-and-dfs/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualization-of-bfs-and-dfs.dir\build.make CMakeFiles/visualization-of-bfs-and-dfs.dir/build
+.PHONY : visualization-of-bfs-and-dfs/fast
 
 #=============================================================================
 # Target rules for targets named bfs-test
@@ -238,6 +251,19 @@ dfs-test: cmake_check_build_system
 dfs-test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\dfs-test.dir\build.make CMakeFiles/dfs-test.dir/build
 .PHONY : dfs-test/fast
+
+#=============================================================================
+# Target rules for targets named gui-test
+
+# Build rule for target.
+gui-test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 gui-test
+.PHONY : gui-test
+
+# fast build rule for target.
+gui-test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui-test.dir\build.make CMakeFiles/gui-test.dir/build
+.PHONY : gui-test/fast
 
 example/bfs-test.obj: example/bfs-test.cpp.obj
 
@@ -347,6 +373,60 @@ example/draw-array-test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\draw-array-test.dir\build.make CMakeFiles/draw-array-test.dir/example/draw-array-test.cpp.s
 .PHONY : example/draw-array-test.cpp.s
 
+example/gui-test.obj: example/gui-test.cpp.obj
+
+.PHONY : example/gui-test.obj
+
+# target to build an object file
+example/gui-test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui-test.dir\build.make CMakeFiles/gui-test.dir/example/gui-test.cpp.obj
+.PHONY : example/gui-test.cpp.obj
+
+example/gui-test.i: example/gui-test.cpp.i
+
+.PHONY : example/gui-test.i
+
+# target to preprocess a source file
+example/gui-test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui-test.dir\build.make CMakeFiles/gui-test.dir/example/gui-test.cpp.i
+.PHONY : example/gui-test.cpp.i
+
+example/gui-test.s: example/gui-test.cpp.s
+
+.PHONY : example/gui-test.s
+
+# target to generate assembly for a file
+example/gui-test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui-test.dir\build.make CMakeFiles/gui-test.dir/example/gui-test.cpp.s
+.PHONY : example/gui-test.cpp.s
+
+example/visualization-of-bfs-and-dfs.obj: example/visualization-of-bfs-and-dfs.cpp.obj
+
+.PHONY : example/visualization-of-bfs-and-dfs.obj
+
+# target to build an object file
+example/visualization-of-bfs-and-dfs.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualization-of-bfs-and-dfs.dir\build.make CMakeFiles/visualization-of-bfs-and-dfs.dir/example/visualization-of-bfs-and-dfs.cpp.obj
+.PHONY : example/visualization-of-bfs-and-dfs.cpp.obj
+
+example/visualization-of-bfs-and-dfs.i: example/visualization-of-bfs-and-dfs.cpp.i
+
+.PHONY : example/visualization-of-bfs-and-dfs.i
+
+# target to preprocess a source file
+example/visualization-of-bfs-and-dfs.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualization-of-bfs-and-dfs.dir\build.make CMakeFiles/visualization-of-bfs-and-dfs.dir/example/visualization-of-bfs-and-dfs.cpp.i
+.PHONY : example/visualization-of-bfs-and-dfs.cpp.i
+
+example/visualization-of-bfs-and-dfs.s: example/visualization-of-bfs-and-dfs.cpp.s
+
+.PHONY : example/visualization-of-bfs-and-dfs.s
+
+# target to generate assembly for a file
+example/visualization-of-bfs-and-dfs.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\visualization-of-bfs-and-dfs.dir\build.make CMakeFiles/visualization-of-bfs-and-dfs.dir/example/visualization-of-bfs-and-dfs.cpp.s
+.PHONY : example/visualization-of-bfs-and-dfs.cpp.s
+
 src/GraphNode.obj: src/GraphNode.cpp.obj
 
 .PHONY : src/GraphNode.obj
@@ -401,6 +481,33 @@ src/draw.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\datastruct-exp.dir\build.make CMakeFiles/datastruct-exp.dir/src/draw.cpp.s
 .PHONY : src/draw.cpp.s
 
+src/gui.obj: src/gui.cpp.obj
+
+.PHONY : src/gui.obj
+
+# target to build an object file
+src/gui.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\datastruct-exp.dir\build.make CMakeFiles/datastruct-exp.dir/src/gui.cpp.obj
+.PHONY : src/gui.cpp.obj
+
+src/gui.i: src/gui.cpp.i
+
+.PHONY : src/gui.i
+
+# target to preprocess a source file
+src/gui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\datastruct-exp.dir\build.make CMakeFiles/datastruct-exp.dir/src/gui.cpp.i
+.PHONY : src/gui.cpp.i
+
+src/gui.s: src/gui.cpp.s
+
+.PHONY : src/gui.s
+
+# target to generate assembly for a file
+src/gui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\datastruct-exp.dir\build.make CMakeFiles/datastruct-exp.dir/src/gui.cpp.s
+.PHONY : src/gui.cpp.s
+
 src/my-algorithm.obj: src/my-algorithm.cpp.obj
 
 .PHONY : src/my-algorithm.obj
@@ -445,6 +552,8 @@ help:
 	@echo ... demo-test
 	@echo ... dfs-test
 	@echo ... draw-array-test
+	@echo ... gui-test
+	@echo ... visualization-of-bfs-and-dfs
 	@echo ... example/bfs-test.obj
 	@echo ... example/bfs-test.i
 	@echo ... example/bfs-test.s
@@ -457,12 +566,21 @@ help:
 	@echo ... example/draw-array-test.obj
 	@echo ... example/draw-array-test.i
 	@echo ... example/draw-array-test.s
+	@echo ... example/gui-test.obj
+	@echo ... example/gui-test.i
+	@echo ... example/gui-test.s
+	@echo ... example/visualization-of-bfs-and-dfs.obj
+	@echo ... example/visualization-of-bfs-and-dfs.i
+	@echo ... example/visualization-of-bfs-and-dfs.s
 	@echo ... src/GraphNode.obj
 	@echo ... src/GraphNode.i
 	@echo ... src/GraphNode.s
 	@echo ... src/draw.obj
 	@echo ... src/draw.i
 	@echo ... src/draw.s
+	@echo ... src/gui.obj
+	@echo ... src/gui.i
+	@echo ... src/gui.s
 	@echo ... src/my-algorithm.obj
 	@echo ... src/my-algorithm.i
 	@echo ... src/my-algorithm.s

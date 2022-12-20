@@ -21,7 +21,7 @@ private:
     int x; // 坐标x y值
     int y;
     int radius;  // 结点圆的半径
-//    char *label;  // 结点的内容
+//    char *b_label;  // 结点的内容
     int label;
     bool isVisible; // 结点是否可见
 public:
@@ -33,7 +33,7 @@ public:
     int getX() const {return this->x;}  // 获取x y坐标 半径 结点内容 是否可见
     int getY() const {return this->y;}
     int getR() const {return this->radius;}
-//    char * getS() {return this->label;}
+//    char * getS() {return this->b_label;}
     int getLabel() const {return this->label;}
     bool getVisibility() const {return this->isVisible;}
     void setXYR(int _x, int _y, int _radius = 20); // 设置坐标和半径
@@ -72,6 +72,25 @@ public:
 //            nodes[i].setString(t);
             nodes[i].setLabel(i + 1);
         }
+    }
+    void setVertexNumber(int vex) {
+        this->vertexNumber = vex;
+        std::vector<std::vector<double>> initialization(vex, std::vector<double>(vex));
+        adjMatrix.swap(initialization);
+        for (auto &row : adjMatrix) {
+            for (auto &each : row) {
+                each = 0;
+            }
+        }
+        std::vector<GraphNode> v(vertexNumber);
+        nodes.swap(v);
+        for (int i = 1; i <= vertexNumber; i++) {
+//            char *t = (char*)malloc(sizeof(char) * 3);
+//            itoa(i, t, 10);
+//            nodes[i].setString(t);
+            nodes[i].setLabel(i + 1);
+        }
+//        std::cout << this->vertexNumber << std::endl;
     }
     friend std::istream & operator>>(std::istream &is, Graph &g);
     friend std::ostream & operator<<(std::ostream &os, const Graph &g);

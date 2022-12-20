@@ -6,6 +6,7 @@ CMakeFiles/bfs-test.dir/example/bfs-test.cpp.obj
  ../include/draw.h
  ../include/ege.h
  ../include/graphics.h
+ ../include/gui.h
  ../include/my-algorithm.h
  ../include/public.h
  G:/Desktop/datastruct-exp/example/bfs-test.cpp

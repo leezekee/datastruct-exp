@@ -33,7 +33,10 @@ link_directories(${PROJECT_SOURCE_DIR}/lib)
 aux_source_directory(./src SOURCE)
 aux_source_directory(./include INCLUDE)
 
-# 生成dll
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--stack,999999")
+
+
+
 add_library(${PROJECT_NAME} STATIC ${SOURCE} ${INCLUDE})
 install(TARGETS ${PROJECT_NAME} DESTINATION  ${PROJECT_SOURCE_DIR}/lib)
 SET_TARGET_PROPERTIES(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE C

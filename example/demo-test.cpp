@@ -6,27 +6,35 @@
 
 // 添加头文件到 include/public.h 中
 #include "public.h"
+
+void openSubWindow(HWND hwnd) {
+    attachHWND(hwnd);
+    initgraph(200, 300, INIT_NOBORDER | INIT_CHILD);
+    setbkcolor(WHITE);
+    getchar();
+    closegraph();
+}
+
 int main() {
-    initgraph(1128, 1024);
-    int r = 30;
-
-    GraphNode gn[10];
-
-    for (int i = 0; i < 10; i++) {
-        gn[i].setXYR(60, 90 * i + 90, r);
-        gn[i].setRGB(255, 255, 255);
-        char name[3];
-        sprintf(name, "%d", i + 1);
-        gn[i].setString(name);
-//        std::cout << gn[i].getS() << std::endl;
-        drawNode(gn[i], EGERGB(gn[i].red, gn[i].green, gn[i].blue), EGERGB(255-gn[i].red, 255-gn[i].green, 255-gn[i].blue));
+//    initgraph(600, 800, INIT_RENDERMANUAL);
+//    HWND hwnd = getHWnd();
+//
+//    getchar();
+//    closegraph();
+    initgraph(600, 600);
+    setbkcolor(WHITE);
+    Graph g = CreateGraph();
+    showGraph(g);
+    getch();
+    cleardevice();
+    for (int i = 0; i < g.vertexNumber; i++) {
+//        cleardevice();
+        g.nodes[i].setVisibility(true);
+        drawNodes(g);
+//        delay_fps(180);
+//        getch();
+        delay_ms(500);
     }
-
-    for (int i = 0; i < 9; i++) {
-        drawLine(gn[i], gn[i + 1], EGERGB(gn[i].red, gn[i].green, gn[i].blue));
-    }
-
-
     getch();
 
     closegraph();

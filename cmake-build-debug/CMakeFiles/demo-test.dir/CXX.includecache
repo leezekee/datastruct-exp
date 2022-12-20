@@ -9,12 +9,22 @@
 ../include/GraphNode.h
 graphics.h
 -
+vector
+-
 iostream
+-
+iomanip
+-
+xmath.h
 -
 
 ../include/draw.h
 GraphNode.h
 ../include/GraphNode.h
+cmath
+-
+xmath.h
+-
 
 ../include/ege.h
 windows.h

@@ -5,13 +5,19 @@
 #ifndef DATASTRUCT_EXP_MY_ALGORITHM_H
 #define DATASTRUCT_EXP_MY_ALGORITHM_H
 #include "GraphNode.h"
+#include <draw.h>
+#include <queue>
+#include <utility>
 
-void _dfs(GraphNode **_vexes, int v0, int *_visited);
-void dfs(GraphNode **_vexes);
+
+void dfs(Graph &g, int v0, int *_visited, std::vector<std::pair<int, int>> &operation);
+void dfs(Graph &g, std::vector<std::pair<int, int>> &operation);
 
 
-int findAdjVex(GraphNode **_vexes, int v0, int *visited);
-void _bfs(GraphNode **_vexes, int v0, int *visited);
-void bfs(GraphNode **_vexes);
+int findAdjVex(Graph &g, int v0, int *visited);
+void bfs(Graph &g, int v0, int *visited, std::vector<std::pair<int, int>> &operation);
+void bfs(Graph &g, std::vector<std::pair<int, int>> &operation);
+
+void visit(Graph &g, int v0, int *_visited, std::vector<std::pair<int, int>> &vector);
 
 #endif //DATASTRUCT_EXP_MY_ALGORITHM_H

@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "G:/Desktop/datastruct-exp/src/GraphNode.cpp" "G:/Desktop/datastruct-exp/cmake-build-debug/CMakeFiles/datastruct-exp.dir/src/GraphNode.cpp.obj"
   "G:/Desktop/datastruct-exp/src/draw.cpp" "G:/Desktop/datastruct-exp/cmake-build-debug/CMakeFiles/datastruct-exp.dir/src/draw.cpp.obj"
+  "G:/Desktop/datastruct-exp/src/gui.cpp" "G:/Desktop/datastruct-exp/cmake-build-debug/CMakeFiles/datastruct-exp.dir/src/gui.cpp.obj"
   "G:/Desktop/datastruct-exp/src/my-algorithm.cpp" "G:/Desktop/datastruct-exp/cmake-build-debug/CMakeFiles/datastruct-exp.dir/src/my-algorithm.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

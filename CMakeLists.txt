@@ -33,7 +33,10 @@ link_directories(${PROJECT_SOURCE_DIR}/lib)
 aux_source_directory(./src SOURCE)
 aux_source_directory(./include INCLUDE)
 
-# 生成dll
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--stack,999999")
+
+
+
 add_library(${PROJECT_NAME} STATIC ${SOURCE} ${INCLUDE})
 install(TARGETS ${PROJECT_NAME} DESTINATION  ${PROJECT_SOURCE_DIR}/lib)
 SET_TARGET_PROPERTIES(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE C
@@ -46,7 +49,33 @@ target_link_libraries(demo-test
         ${PROJECT_SOURCE_DIR}/lib
         ${NEEDED_LIB}
 )
-
-
-
-
+add_executable(draw-array-test example/draw-array-test.cpp)
+target_link_libraries(draw-array-test
+        ${PROJECT_NAME}
+        ${PROJECT_SOURCE_DIR}/lib
+        ${NEEDED_LIB}
+        )
+add_executable(dfs-test example/dfs-test.cpp)
+target_link_libraries(dfs-test
+        ${PROJECT_NAME}
+        ${PROJECT_SOURCE_DIR}/lib
+        ${NEEDED_LIB}
+        )
+add_executable(bfs-test example/bfs-test.cpp)
+target_link_libraries(bfs-test
+        ${PROJECT_NAME}
+        ${PROJECT_SOURCE_DIR}/lib
+        ${NEEDED_LIB}
+        )
+add_executable(gui-test example/gui-test.cpp)
+target_link_libraries(gui-test
+        ${PROJECT_NAME}
+        ${PROJECT_SOURCE_DIR}/lib
+        ${NEEDED_LIB}
+        )
+add_executable(visualization-of-bfs-and-dfs example/visualization-of-bfs-and-dfs.cpp)
+target_link_libraries(visualization-of-bfs-and-dfs
+        ${PROJECT_NAME}
+        ${PROJECT_SOURCE_DIR}/lib
+        ${NEEDED_LIB}
+        )

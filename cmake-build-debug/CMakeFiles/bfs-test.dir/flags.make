@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = @CMakeFiles/bfs-test.dir/includes_CXX.rsp
 
-CXX_FLAGS = -g -std=gnu++14
+CXX_FLAGS = -g -mwindows -std=gnu++14
 

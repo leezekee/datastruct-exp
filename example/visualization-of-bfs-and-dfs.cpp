@@ -5,8 +5,10 @@
 #include <public.h>
 int main() {
     init();
+
     flushkey();
     getch();
+
     closegraph();
     return 0;
 }

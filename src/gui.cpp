@@ -7,12 +7,13 @@
 
 void nextStep(Graph &g, const std::vector<std::pair<int, int>> &operation, int &index, std::function<int ()> const &fun) {
     if (index >= operation.size()) {
+        std::cout << index << " " << operation.size() << std::endl;
         MessageBox(getHWnd(), (LPCSTR)"This is the last step!", (LPCSTR)"warning", MB_ICONWARNING | MB_OK | MB_SYSTEMMODAL);
         return;
     }
-    std::cout << "next step" << std::endl;
+//    std::cout << "next step" << std::endl;
     int start = operation[index].first, end = operation[index].second;
-    std::cout << start << " -> " << end << std::endl;
+//    std::cout << start << " -> " << end << std::endl;
     g.nodes[start].setVisibility(true);
     g.nodes[end].setVisibility(true);
 //                drawNodes(g);
@@ -22,13 +23,22 @@ void nextStep(Graph &g, const std::vector<std::pair<int, int>> &operation, int &
     index++;
 }
 
-void prevStep(Graph &g, const std::vector<std::pair<int, int>> &operation, int &index, std::function<int ()> const &fun) {
-    if (index <= 0) {
+void prevStep(Graph &g, const std::vector<std::pair<int, int>> &operation, int &index, std::function<int ()> const &fun, bool isDfs) {
+    if  (index <= 0) {
         MessageBox(getHWnd(),(LPCSTR)"This is the fist step!", (LPCSTR)"warning", MB_ICONWARNING | MB_OK | MB_SYSTEMMODAL);
         return;
     }
     std::cout << "previous step" << std::endl;
-    int end = operation[--index].second;
+    index--;
+    if (!isDfs)
+        while (operation[index].first == operation[index].second && index > 0) {
+            index--;
+        }
+    if (index <= 0) {
+        MessageBox(getHWnd(),(LPCSTR)"This is the fist step!", (LPCSTR)"warning", MB_ICONWARNING | MB_OK | MB_SYSTEMMODAL);
+        return;
+    }
+    int end = operation[index].second;
     g.nodes[end].setVisibility(false);
     cleardevice();
     fun();
@@ -37,9 +47,6 @@ void prevStep(Graph &g, const std::vector<std::pair<int, int>> &operation, int &
 
 bool button::onClick() {
     mouse_msg msg = getmouse();
-//    std::cout << msg.x << " " << msg.y << std::endl;
-//    std::cout << this->x << " " << this->y << " " << this->x + this->width << " " << this->y + this->height << std::endl;
-//    std::cout << ((msg.x >= this->x) && (msg.y >= this->y) && (msg.x <= this->x + this->width) && (msg.y <= this->y + this->height)) << std::endl;
     return (msg.x >= this->x) && (msg.y >= this->y)
            && (msg.x <= this->x + this->width)
            && (msg.y <= this->y + this->height);
@@ -87,7 +94,7 @@ void BFS(Graph &g) {
         return true;
     };
 
-
+    std::cout << "bfs" << std::endl;
     showMain();
     std::vector<std::pair<int, int>> operation{};
     bfs(g, operation);
@@ -146,6 +153,7 @@ void DFS(Graph &g) {
         return true;
     };
 
+    std::cout << "dfs" << std::endl;
 
     showMain();
     std::vector<std::pair<int, int>> operation{};
@@ -163,7 +171,7 @@ void DFS(Graph &g) {
                     if (btn_next.onClick()) {
                         nextStep(g, operation, index, showMain);
                     } else if (btn_prev.onClick()) {
-                        prevStep(g, operation, index, showMain);
+                        prevStep(g, operation, index, showMain, true);
                     } else if (btn_back.onClick()) {
                         Menu(g);
                     }
@@ -199,12 +207,16 @@ void Menu(Graph &g) {
     button btn1(900, 200, label1);
     btn.show();
     btn1.show();
+    char label2[20] = "input";
+    button btn_input(900, 300, label2);
+    btn_input.show();
 
     auto showMain = [&]() -> bool {
         setcolor(EGERGBA(0,0,0,255));
         ege_rectangle(20, 20, 860, 720);
         btn.show();
         btn1.show();
+        btn_input.show();
         return true;
     };
 
@@ -224,6 +236,9 @@ void Menu(Graph &g) {
                         BFS(g);
                     } else if (btn.onClick()) {
                         DFS(g);
+                    } else if (btn_input.onClick()) {
+                        input(g, true);
+                        Menu(g);
                     }
                 }
             }
@@ -265,19 +280,17 @@ void initEditBox(sys_edit &editBox, bool multiline, int x, int y, int width, int
     editBox.setfocus();
 }
 
-void input(Graph &g) {
+void input(Graph &g, bool isNotFirst) {
     setcaption("Input Graph");
     initgraph(300, 400, INIT_RENDERMANUAL);
-//    setbkcolor(WHITE);
     setbkcolor(0xD0DFE6);
 
-//    cleardevice();
-    inputVexNumber(g);
+    inputVexNumber(g, isNotFirst);
     inputAdjMatrix(g);
     closegraph();
 }
 
-void inputVexNumber(Graph &g) {
+void inputVexNumber(Graph &g, bool isNotFirst) {
     cleardevice();
     sys_edit cinVertexNumber;
     char *vex = new char[20];
@@ -287,7 +300,10 @@ void inputVexNumber(Graph &g) {
     setcolor(BLACK);
     setfont(16, 0, "黑体");
     char label1[40] = "Input the number of vertex (1~20):";
-    xyprintf(20, 50, label1);
+    if (!isNotFirst)
+        xyprintf(10, 50, label1);
+    else
+        xyprintf(150, 50, label1);
 
 
     initEditBox(cinVertexNumber, false, 100, 100, 100, 20);
@@ -310,7 +326,6 @@ void inputVexNumber(Graph &g) {
                                 continue;
                             }
                             g.setVertexNumber(vexNum);
-//                            std::cout << g.vertexNumber << std::endl;
                             return;
                         }
                     }
@@ -320,7 +335,6 @@ void inputVexNumber(Graph &g) {
     }
 }
 
-
 void inputAdjMatrix(Graph& g) {
     cleardevice();
     sys_edit cinAdjMatrix;
@@ -328,6 +342,7 @@ void inputAdjMatrix(Graph& g) {
     setbkmode(TRANSPARENT);
     setcolor(BLACK);
     setfont(16, 0, "黑体");
+    settextjustify(CENTER_TEXT, TOP_TEXT);
     char label1[40] = "Input Matrix of adjacency:";
     xyprintf(150, 20, label1);
 
@@ -348,25 +363,39 @@ void inputAdjMatrix(Graph& g) {
                             char *p = adj;
                             std::vector<std::vector<double>> matrix;
                             int count = 0;
-                            std::cout << p << std::endl;
+//                            std::cout << p << std::endl;
                             std::cout << g.vertexNumber << std::endl;
                             std::vector<double> row;
-                            while(*p != '\0' || !matrix.empty()) {
+                            while(*p != '\0') {
                                 if (isdigit(*p)) {
-                                    double x = atof(p);
+                                    double x = 0;
+                                    while(isdigit(*p)) {
+                                        x = x * 10 + (double)(*p - '0');
+                                        p++;
+                                    }
+                                    std::cout << x << " ";
                                     row.push_back(x);
                                     count++;
-                                } else if (*p == '\n' || *p == '\0') {
+                                }
+                                if (*p == '\n' || *p == '\0') {
                                     matrix.push_back(row);
                                     std::vector<double> empty;
                                     row.swap(empty);
                                     if (*p == '\0') {
                                         break;
                                     }
+                                    std::cout << std::endl;
                                 }
-                                *p++;
+                                p++;
                             }
+                            std::cout << count << std::endl;
                             if (count != g.vertexNumber * g.vertexNumber) {
+                                for (auto rows : matrix) {
+                                    for (auto each : rows) {
+                                        std::cout << each << " ";
+                                    }
+                                    std::cout << std::endl;
+                                }
                                 MessageBox(getHWnd(), (LPCSTR)"Incorrect input!", (LPCSTR)"warning", MB_OK | MB_ICONWARNING);
                                 std::vector<std::vector<double>> empty;
                                 matrix.swap(empty);

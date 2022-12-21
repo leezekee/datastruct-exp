@@ -5,37 +5,6 @@
 #include "draw.h"
 #include <gui.h>
 
-// 画两个结点之间的线
-//void drawLine(GraphNode &na, GraphNode &nb, color_t RGB){
-//    setcolor(RGB);
-//    line(na.getX(), na.getY() + na.getR(), nb.getX(), nb.getY() - na.getR());
-//
-//// if right:
-////    line(na.getX() + na.getR() * 0.293, na.getY() + na.getR() * 0.293, nb.getX() - na.getR() * 0.293, nb.getY() - na.getR() * 0.293);
-//// if right:
-////    line(na.getX() - na.getR() * 0.293, na.getY() - na.getR() * 0.293, nb.getX() + na.getR() * 0.293, nb.getY() + na.getR() * 0.293);
-//
-//    //    line(na.getX(), na.getY(), nb.getX(), nb.getY());
-//}
-
-void visitNode(GraphNode &gn) {
-    // 访问到node的代码
-}
-
-//void drawNode(GraphNode &gn, color_t RGB, color_t FontRGB) {
-//    setcolor(RGB);
-//    setfillcolor(RGB);
-//    fillellipse(gn.getX(), gn.getY(), gn.getR(), gn.getR());
-//
-//    setcolor(FontRGB);
-//    setbkmode(TRANSPARENT);
-////    char b_label[] = "1";
-////    gn.setString(b_label);
-////    setfont(10, 5, "宋体");
-//    outtextxy(gn.getX()-5, gn.getY()-8, gn.getS());
-////    std::cout << gn.getS() << std::endl;
-//}
-
 void drawArrowLine(const GraphNode &gn1, const GraphNode &gn2, char *label) {
     int x1 = gn1.getX();
     int y1 = gn1.getY();
@@ -129,7 +98,7 @@ Graph CreateGraph() {
     Graph g = inputGraph();
     for (int i = 0; i < g.vertexNumber; ++i) {
         int x = 430 + 300 * cos((double)i / g.vertexNumber * 2 * PI - PI / 2);
-        int y = 430 + 300 * sin((double)i / g.vertexNumber * 2 * PI - PI / 2);
+        int y = 380 + 300 * sin((double)i / g.vertexNumber * 2 * PI - PI / 2);
         g.nodes[i].setXYR(x, y);
 //        char *t = new char[20];
 //        memset(t, 0, sizeof(t));
@@ -165,7 +134,8 @@ void showOpNext(Graph &g, std::vector<std::pair<int, int>> operation, int index)
     for (int i = 0; i <= index; i++) {
         char label[20] = "";
         sprintf(label, "%.2lf", g.adjMatrix[operation[i].first][operation[i].second]);
-        drawArrowLine(g.nodes[operation[i].first], g.nodes[operation[i].second], label);
+        if (operation[i].first != operation[i].second)
+            drawArrowLine(g.nodes[operation[i].first], g.nodes[operation[i].second], label);
     }
 }
 
@@ -179,7 +149,8 @@ void showOpPrev(Graph &g, std::vector<std::pair<int, int>> operation, int index)
     for (int i = 0; i < index; i++) {
         char label[20] = "";
         sprintf(label, "%.2lf", g.adjMatrix[operation[i].first][operation[i].second]);
-        drawArrowLine(g.nodes[operation[i].first], g.nodes[operation[i].second], label);
+        if (operation[i].first != operation[i].second)
+            drawArrowLine(g.nodes[operation[i].first], g.nodes[operation[i].second], label);
     }
 }
 

@@ -10,18 +10,18 @@
 #include <my-algorithm.h>
 #include <ege/sys_edit.h>
 
+void init();
+void input(Graph &g, bool isNotFirst=false);
 void nextStep(Graph &g, const std::vector<std::pair<int, int>> &operation, int &index, std::function<int ()> const &fun);
-void prevStep(Graph &g, const std::vector<std::pair<int, int>> &operation, int &index, std::function<int ()> const &fun);
+void prevStep(Graph &g, const std::vector<std::pair<int, int>> &operation, int &index, std::function<int ()> const &fun, bool isDfs=false);
 
 void BFS(Graph &g);
 void DFS(Graph &g);
 void Menu(Graph &g);
-void init();
 void initEditBox(sys_edit &editBox, bool multiline, int x, int y, int width, int height);
 
 void showMatrix(const Graph &g);
-void input(Graph &g);
-void inputVexNumber(Graph &g);
+void inputVexNumber(Graph &g, bool isNotFirst=false);
 void inputAdjMatrix(Graph& g);
 
 class button {
